@@ -40,6 +40,7 @@ console.log(resultsJson);
 
 fs.writeFileSync(jsonFileName, resultsJson);
 
-var server = app.listen(3942, function() {
+var port = process.env.PORT || 3942;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
