@@ -14,16 +14,16 @@ app.get('/', indexController.index);
 var csvFile = process.argv[2];
 var jsonFile = process.argv[3];
 
-var csvFileContents = fs.ReadFileSync(csvFile, 'utf-8');
+var csvFileContents = fs.readFileSync(csvFile, 'utf-8');
 var rows = csvFileContents.split('\n');
 var labels = rows.splice(0,1)[0].split(',');
 
 var results = rows
-	.filter(function(row){
-        return row !== '';
+	.filter(function(rows){
+        return rows !== '';
     })
-    .map(function(row) {
-    	var columns = row.split(',');
+    .map(function(rows) {
+    	var columns = rows.split(',');
     	var obj = {};
 
     	for (var i=0; i<columns.length; i++) {
